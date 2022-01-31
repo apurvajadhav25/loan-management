@@ -45,6 +45,7 @@ public class LoanController {
 	@PutMapping("/loan/{id}")
     public ResponseEntity<Loan> updateLoan(@PathVariable(value = "id") Integer id,
                                                  @RequestBody Loan loanDetails) {
+		System.out.println(loanDetails);
         Loan loan = loanRepository.findById(id).get();
 
         loan.setAccountNumber(loanDetails.getAccountNumber());
@@ -52,14 +53,18 @@ public class LoanController {
         loan.setCustomer(loanDetails.getCustomer());
         loan.setDescription(loanDetails.getDescription());
         loan.setDueOn(loanDetails.getDueOn());
-        loan.setEmi(loanDetails.getEmi());
+        loan.setEmiAmount(loanDetails.getEmiAmount());
         loan.setFirstDisbursal(loanDetails.getFirstDisbursal());
-        loan.setInstallmentFrequency(loanDetails.getInstallmentFrequency());
+        loan.setFrequency(loanDetails.getFrequency());
         loan.setLastDisbursal(loanDetails.getLastDisbursal());
         loan.setOutStandingAmount(loanDetails.getOutStandingAmount());
-        loan.setRateOfInterest(loanDetails.getRateOfInterest());
+        loan.setRoi(loanDetails.getRoi());
         loan.setTenure(loanDetails.getTenure());
         loan.setTotalAmount(loanDetails.getTotalAmount());
+        loan.setType(loanDetails.getType());
+        loan.setInterestAmount(loanDetails.getInterestAmount());
+        loan.setDescription(loanDetails.getDescription());
+        loan.setIsActive(loanDetails.getIsActive());
         
         final Loan updatedLoan = loanRepository.save(loan);
         return ResponseEntity.ok(updatedLoan);

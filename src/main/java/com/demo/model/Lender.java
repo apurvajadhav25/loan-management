@@ -12,8 +12,8 @@ public class Lender {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	int id;
 	String name;
-	String capitalAmount;
-	String balanceAmount;
+	double capitalAmount;
+	double balanceAmount;
 	
 	public Lender() {
 	}
@@ -34,19 +34,19 @@ public class Lender {
 		this.name = name;
 	}
 
-	public String getCapitalAmount() {
+	public double getCapitalAmount() {
 		return capitalAmount;
 	}
 
-	public void setCapitalAmount(String capitalAmount) {
+	public void setCapitalAmount(double capitalAmount) {
 		this.capitalAmount = capitalAmount;
 	}
 
-	public String getBalanceAmount() {
+	public double getBalanceAmount() {
 		return balanceAmount;
 	}
 
-	public void setBalanceAmount(String balanceAmount) {
+	public void setBalanceAmount(double balanceAmount) {
 		this.balanceAmount = balanceAmount;
 	}
 }

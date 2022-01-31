@@ -17,7 +17,7 @@ public class Customer {
 	String emailId;
 	String mobileNumber;
 	String address;
-	String isActive;
+	boolean isActive;
 	
 	@OneToMany(mappedBy = "customer")
 	Set<Loan> loan;
@@ -65,11 +65,11 @@ public class Customer {
 		this.address = address;
 	}
 
-	public String getIsActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(String isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 

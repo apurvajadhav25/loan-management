@@ -43,15 +43,15 @@ public class CustomerController {
 	}
 	
 	@PutMapping("/customer/{id}")
-    public ResponseEntity<Customer> updateFilter1(@PathVariable(value = "id") Integer id,
+    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "id") Integer id,
                                                  @RequestBody Customer customerDetails) {
         Customer customer = customerRepository.findById(id).get();
 
         customer.setName(customerDetails.getName());
         customer.setMobileNumber(customerDetails.getMobileNumber());
-        customer.setIsActive(customer.getIsActive());
-        customer.setEmailId(customer.getEmailId());
-        customer.setAddress(customer.getAddress());
+        customer.setIsActive(customerDetails.getIsActive());
+        customer.setEmailId(customerDetails.getEmailId());
+        customer.setAddress(customerDetails.getAddress());
         
         final Customer updatedcustomer = customerRepository.save(customer);
         return ResponseEntity.ok(updatedcustomer);

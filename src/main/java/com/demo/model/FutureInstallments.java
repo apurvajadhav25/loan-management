@@ -1,5 +1,7 @@
 package com.demo.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +14,8 @@ public class FutureInstallments {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	int id;
-	String amount;
-	String dated;
+	double amount;
+	Date dated;
 	
 	@ManyToOne
 	Loan loan;
@@ -29,19 +31,19 @@ public class FutureInstallments {
 		this.id = id;
 	}
 
-	public String getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
-	public String getDated() {
+	public Date getDated() {
 		return dated;
 	}
 
-	public void setDated(String dated) {
+	public void setDated(Date dated) {
 		this.dated = dated;
 	}
 

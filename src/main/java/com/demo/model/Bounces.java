@@ -1,5 +1,7 @@
 package com.demo.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +14,7 @@ public class Bounces {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	int id;
-	String date;
+	Date date;
 	
 	@ManyToOne
 	Loan loan;
@@ -28,11 +30,11 @@ public class Bounces {
 		this.id = id;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

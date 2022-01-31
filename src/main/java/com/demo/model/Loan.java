@@ -1,5 +1,6 @@
 package com.demo.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -15,17 +16,20 @@ public class Loan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	int id;
 	String accountNumber;
-	String totalAmount;
-	String outStandingAmount;
-	String tenure;
-	String balanceTenure;
-	String emi;
+	String type;
+	float roi;
+	int frequency;
+	double totalAmount;
+	double outStandingAmount;
+	double tenure;
+	double balanceTenure;
+	double emiAmount;
+	double interestAmount;
 	String description;
-	String rateOfInterest;
-	String installmentFrequency;
 	String firstDisbursal;
 	String lastDisbursal;
-	String dueOn;
+	Date dueOn;
+	boolean isActive;
 	
 	@ManyToOne()
 	Customer customer;
@@ -58,44 +62,76 @@ public class Loan {
 		this.accountNumber = accountNumber;
 	}
 
-	public String getTotalAmount() {
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public float getRoi() {
+		return roi;
+	}
+
+	public void setRoi(float roi) {
+		this.roi = roi;
+	}
+
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
+
+	public double getTotalAmount() {
 		return totalAmount;
 	}
 
-	public void setTotalAmount(String totalAmount) {
+	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 
-	public String getOutStandingAmount() {
+	public double getOutStandingAmount() {
 		return outStandingAmount;
 	}
 
-	public void setOutStandingAmount(String outStandingAmount) {
+	public void setOutStandingAmount(double outStandingAmount) {
 		this.outStandingAmount = outStandingAmount;
 	}
 
-	public String getTenure() {
+	public double getTenure() {
 		return tenure;
 	}
 
-	public void setTenure(String tenure) {
+	public void setTenure(double tenure) {
 		this.tenure = tenure;
 	}
 
-	public String getBalanceTenure() {
+	public double getBalanceTenure() {
 		return balanceTenure;
 	}
 
-	public void setBalanceTenure(String balanceTenure) {
+	public void setBalanceTenure(double balanceTenure) {
 		this.balanceTenure = balanceTenure;
 	}
 
-	public String getEmi() {
-		return emi;
+	public double getEmiAmount() {
+		return emiAmount;
 	}
 
-	public void setEmi(String emi) {
-		this.emi = emi;
+	public void setEmiAmount(double emiAmount) {
+		this.emiAmount = emiAmount;
+	}
+
+	public double getInterestAmount() {
+		return interestAmount;
+	}
+
+	public void setInterestAmount(double interestAmount) {
+		this.interestAmount = interestAmount;
 	}
 
 	public String getDescription() {
@@ -104,22 +140,6 @@ public class Loan {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getRateOfInterest() {
-		return rateOfInterest;
-	}
-
-	public void setRateOfInterest(String rateOfInterest) {
-		this.rateOfInterest = rateOfInterest;
-	}
-
-	public String getInstallmentFrequency() {
-		return installmentFrequency;
-	}
-
-	public void setInstallmentFrequency(String installmentFrequency) {
-		this.installmentFrequency = installmentFrequency;
 	}
 
 	public String getFirstDisbursal() {
@@ -138,12 +158,20 @@ public class Loan {
 		this.lastDisbursal = lastDisbursal;
 	}
 
-	public String getDueOn() {
+	public Date getDueOn() {
 		return dueOn;
 	}
 
-	public void setDueOn(String dueOn) {
+	public void setDueOn(Date dueOn) {
 		this.dueOn = dueOn;
+	}
+
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public Customer getCustomer() {
@@ -154,4 +182,6 @@ public class Loan {
 		this.customer = customer;
 	}
 
+	
+	
 }
