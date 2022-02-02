@@ -45,7 +45,7 @@ public class LoanController {
 	@PutMapping("/loan/{id}")
     public ResponseEntity<Loan> updateLoan(@PathVariable(value = "id") Integer id,
                                                  @RequestBody Loan loanDetails) {
-		System.out.println(loanDetails);
+		System.out.println(loanDetails.getOutStandingAmount());
         Loan loan = loanRepository.findById(id).get();
 
         loan.setAccountNumber(loanDetails.getAccountNumber());
@@ -63,7 +63,6 @@ public class LoanController {
         loan.setTotalAmount(loanDetails.getTotalAmount());
         loan.setType(loanDetails.getType());
         loan.setInterestAmount(loanDetails.getInterestAmount());
-        loan.setDescription(loanDetails.getDescription());
         loan.setIsActive(loanDetails.getIsActive());
         
         final Loan updatedLoan = loanRepository.save(loan);

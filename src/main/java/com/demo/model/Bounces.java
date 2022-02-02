@@ -16,11 +16,23 @@ public class Bounces {
 	int id;
 	Date date;
 	
+	
 	@ManyToOne
 	Loan loan;
 	
 	public Bounces() {
 	}
+	
+	
+
+	public Bounces(int id, Date date, Loan loan) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.loan = loan;
+	}
+
+
 
 	public int getId() {
 		return id;
